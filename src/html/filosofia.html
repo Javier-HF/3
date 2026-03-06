@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filosofía Institucional</title>
+    <link rel="stylesheet" href="StyleFilosofia.css">
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="top-bar">
+            <nav aria-label="Enlaces superiores">
+                <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+                    <img src="img/805-original.webp" alt="logo" width="40">
+                    <div style="color: #fff; font-weight: bold;">UTHH</div>
+                </div>
+                <a href="index.html">Inicio</a>
+                <a href="directorio.html">Directorio</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="servicio.html">Servicios Del Sistema</a>
+            </nav>
+        </div>
+
+        <nav class="navbar" aria-label="Navegación principal">
+            <ul>
+                <li><a href="servicios.html">Servicios Academicos</a></li>
+                <li><a href="filosofia.html">¿Quienes somos?</a></li>
+                <li><a href="perfil.html">Perfil Academico</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <h1><!-- Título de la sección --></h1>
+        <div class="contenido">
+            <!-- Contenido de Filosofía Institucional -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <section>
+                <h3>Universidad Tecnológica de la Huasteca Hidalguense</h3>
+                <p>Dirección: Carretera Huejutla - Chalahuiyapa Km. 3.5, Hidalgo</p>
+                <p>Teléfono: 789 896 2083</p>
+                <p>Correo: contacto@uthh.edu.mx</p>
+            </section>
+            <section>
+                <p>&copy; <span id="year"></span> UTHH. Todos los derechos reservados.</p>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

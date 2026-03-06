@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Filosofía Institucional</title>
+    <link rel="stylesheet" href="PriEditarFilosofia.css">
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="top-bar">
+            <nav aria-label="Enlaces superiores">
+                <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+                    <img src="img/805-original.webp" alt="logo" width="40">
+                    <div style="color: #fff; font-weight: bold;">UTHH</div>
+                </div>
+                <a href="Administrador.html">Administrador</a>
+                <a href="registro.html">Registro</a>
+                <a href="listado.html">Empleados existentes</a>
+                <a href="incidencias.html">Registro incidencias</a>
+                <a href="Reporteindividual.html">Reporte individual</a>
+            </nav>
+        </div>
+
+        <nav class="navbar" aria-label="Navegación principal">
+            <ul>
+                <a href="adminNot.html">Noticias</a>
+                <a href="ListadoNot.html">Listado Noticias</a>
+                <a href="listadoA.html">Modificar Filosofía</a>
+                <a href="contenidoAdmin.html">Directorio y Servicios</a>
+                <a href="login.html">Cerrar sesión</a>
+            </ul>
+        </nav>
+
+    </header>
+
+    <div class="contenedor">
+        <h2>Editar Filosofía Institucional</h2>
+
+        <form action="actualizarFilosofia.php" method="POST">
+            <input type="hidden" name="id"     value="<!-- id del registro -->">
+            <input type="hidden" name="pagina" value="<!-- nombre de la pagina -->">
+
+            <label for="contenido">Contenido:</label>
+            <textarea name="contenido" id="contenido"><!-- contenido actual --></textarea>
+
+            <input type="submit" value="Actualizar">
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <section>
+                <h3>Universidad Tecnológica de la Huasteca Hidalguense</h3>
+                <p>Dirección: Carretera Huejutla – Chalahuiyapa Km. 3.5, Hidalgo</p>
+                <p>Teléfono: 789 896 2083</p>
+                <p>Correo: contacto@uthh.edu.mx</p>
+            </section>
+            <section>
+                <p>&copy; <span id="year"></span> UTHH. Todos los derechos reservados.</p>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
