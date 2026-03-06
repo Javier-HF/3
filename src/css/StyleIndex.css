@@ -1,0 +1,625 @@
+/* ============================================
+   VARIABLES GLOBALES
+   ============================================ */
+:root {
+    
+    --maroon: #5b1220;  
+    --gold: #bd9659;    
+    --light: #efe1b3;   
+    --text-dark: #222;
+    --text-muted: #777;
+    --radius: 6px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color: var(--maroon);
+    text-align: center;
+}
+
+/* === HEADER SUPERIOR === */
+.top-bar {
+    background: var(--maroon);
+    color: #fff;
+    padding: 8px 16px;
+    text-align: right;
+}
+
+.top-bar a {
+    color: #fff;
+    margin-left: 14px;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.top-bar a:hover {
+    opacity: 0.8;
+}
+
+/* === NAVBAR === */
+.navbar {
+    background: var(--gold);
+    padding: 12px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.navbar a:hover {
+    opacity: 0.8;
+}
+
+/* === HERO (aún parte del header visual) === */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 24px;
+    background: linear-gradient(
+        90deg,
+        rgba(91, 18, 32, 0.95) 0%,
+        rgba(91, 18, 32, 0.6) 35%,
+        rgba(239, 225, 179, 0.6) 35%
+    );
+    color: #fff;
+}
+
+.hero-left h2 {
+    font-size: 32px;
+    margin: 0;
+    padding: 12px 24px;
+    line-height: 1.4;
+}
+
+.hero-left strong {
+    font-weight: 800;
+    color: var(--gold);
+}
+
+/* ============================================
+   MENU (Navegación alternativa)
+   ============================================ */
+.menu {
+    background: var(--gold);
+    padding: 12px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: #fff;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.menu a:hover {
+    opacity: 0.8;
+}
+
+
+/* ============================================
+   HERO (Sección destacada/banner)
+   ============================================ */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 24px;
+    background: linear-gradient(
+        90deg,
+        rgba(91, 18, 32, 0.95) 0%,
+        rgba(91, 18, 32, 0.6) 35%,
+        rgba(239, 225, 179, 0.6) 35%
+    );
+    color: #fff;
+}
+
+.hero-left h2 {
+    font-size: 32px;
+    margin: 0;
+    padding: 12px 24px;
+    line-height: 1.4;
+}
+
+.hero-left strong {
+    font-weight: 800;
+    color: var(--gold);
+}
+
+
+/* ============================================
+   MAIN NEWS (Contenedor principal noticias)
+   ============================================ */
+.main-news {
+    padding: 20px;
+}
+
+
+/* ============================================
+   NEWS SECTION (Sección de noticias)
+   ============================================ */
+.news-section {
+    padding: 60px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* Título principal de la sección */
+.news-section h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--maroon);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Línea decorativa bajo el título */
+.news-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--maroon), var(--gold));
+    border-radius: 2px;
+}
+
+
+/* ============================================
+   NEWS CONTAINER (Grid de noticias)
+   ============================================ */
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+
+/* ============================================
+   NEWS CARD (Tarjeta individual de noticia)
+   ============================================ */
+.news-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Efecto hover en la tarjeta */
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Imagen de la noticia */
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.news-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold) 100%);
+    display: block;
+}
+
+/* Contenedor del cuerpo de la tarjeta */
+.news-card .body {
+    padding: 16px;
+}
+
+/* Contenedor del contenido de la tarjeta */
+.news-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título de la noticia */
+.news-card h3 {
+    margin: 0 0 10px 0;
+    color: var(--maroon);
+    font-size: 18px;
+}
+
+.news-title {
+    font-size: 1.4em;
+    color: var(--maroon);
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+/* Párrafo de la noticia */
+.news-card p {
+    margin: 0 0 10px 0;
+    color: #444;
+    line-height: 1.5;
+}
+
+/* Texto preview/extracto de la noticia */
+.news-text {
+    color: #000000;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Metadatos de la noticia */
+.news-card .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Fecha de publicación */
+.news-date {
+    color:var(--maroon);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Footer de la tarjeta con botón */
+.news-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Botón "Leer más" */
+.read-more {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.read-more:hover {
+    gap: 10px;
+    color: #764ba2;
+}
+
+
+/* ============================================
+   NO NEWS (Estado vacío)
+   ============================================ */
+.no-news {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.no-news h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1e3c72;
+}
+
+.no-news p {
+    font-size: 1em;
+    color: #999;
+}
+
+
+/* ============================================
+   ADMIN HEADER (Cabecera del panel admin)
+   ============================================ */
+.admin-header {
+    background: var(--gold);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.admin-header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-header nav a {
+    color: #fff;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.admin-header nav a:hover {
+    opacity: 0.8;
+}
+
+.admin-header .admin-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* ============================================
+   ADMIN MAIN (Contenedor principal admin)
+   ============================================ */
+.admin-main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ============================================
+   ADMIN FORM (Formularios del panel admin)
+   ============================================ */
+.admin-form {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.admin-form h2 {
+    color: var(--maroon);
+    margin-top: 0;
+}
+
+.admin-form form {
+    display: grid;
+    gap: 14px;
+}
+
+.admin-form label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    display: block;
+}
+
+
+/* ============================================
+   ADMIN LIST (Lista de elementos admin)
+   ============================================ */
+.admin-list {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.admin-list h2 {
+    color: var(--maroon);
+    margin-top: 0;
+}
+
+.admin-list .item {
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.admin-list .item:last-child {
+    border-bottom: none;
+}
+
+.admin-list .item h3 {
+    margin: 0 0 8px 0;
+    color: var(--maroon);
+}
+
+.admin-list .item p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.admin-list .item .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.admin-list .actions {
+    margin-top: 12px;
+}
+
+.admin-list .actions button {
+    margin-right: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+
+/* ============================================
+   FORMULARIOS (Inputs, Textareas, Buttons)
+   ============================================ */
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-size: 14px;
+    width: 100%;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--maroon);
+}
+
+button {
+    background: var(--maroon);
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #7a1829;
+}
+
+.btn-eliminar {
+    background: #d9534f;
+}
+
+.btn-eliminar:hover {
+    background: #c9302c;
+}
+
+
+/* ============================================
+   FOOTER (Pie de página)
+   ============================================ */
+footer {
+    background: #2b2b2b;
+    color: #fff;
+    padding: 24px;
+    margin-top: 40px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Cambio a flex-start para mejor alineación */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.footer h3 {
+    margin-top: 0;
+    color: var(--gold);
+}
+
+.footer p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE - TABLETS Y PANTALLAS MEDIANAS
+   ============================================ */
+@media (max-width: 768px) {
+    .news-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .news-section {
+        padding: 50px 4%;
+    }
+
+    .news-section h1 {
+        font-size: 2em;
+    }
+
+    .news-title {
+        font-size: 1.2em;
+    }
+
+    .news-content {
+        padding: 20px;
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE - MÓVILES
+   ============================================ */
+@media (max-width: 480px) {
+    .news-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .news-section {
+        padding: 40px 3%;
+    }
+
+    .news-section h1 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .news-content {
+        padding: 20px;
+    }
+
+    .news-image {
+        height: 180px;
+    }
+
+    .news-title {
+        font-size: 1.1em;
+    }
+
+    .news-text {
+        -webkit-line-clamp: 3;
+    }
+}
