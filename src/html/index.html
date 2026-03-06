@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Universidad Tecnológica de la Huasteca Hidalguense - Noticias</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleIndex.css">
+</head>
+
+<body>
+<header class="header">
+    
+    <div class="top-bar">
+        <nav aria-label="Enlaces superiores">
+           <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+            <img src="img/805-original.webp" alt="logo" width="40">
+            <div style="color: #fff; font-weight: bold;">UTHH</div>
+           </div>
+            <a href="index.html">Inicio</a>
+            <a href="directorio.html">Directorio</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="servicio.html">Servicios Del Sistema</a>
+        </nav>
+    </div>
+
+    <nav class="navbar" aria-label="Navegación principal">
+        <ul>
+            <li><a href="servicios.html">Servicios Académicos</a></li>
+            <li><a href="filosofia.html">¿Quiénes somos?</a></li>
+            <li><a href="perfil.html">Perfil Académico</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main-news">
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+            <h2 id="hero-title">
+                29 años de educación, innovación y <strong>transformación</strong>.
+            </h2>
+        </div>
+    </section>
+
+    <section class="news-section" aria-labelledby="news-title">
+        <h1 id="news-title">Noticias y Comunicados</h1>
+
+        <div class="news-container">
+
+            <article class="news-card">
+                <img src="img/noticia1.jpg" alt="Imagen de noticia" class="news-image">
+                
+                <div class="news-content">
+                    <span class="news-date">01/03/2026</span>
+
+                    <h2 class="news-title">
+                        Ejemplo de noticia
+                    </h2>
+
+                    <p class="news-text">
+                        Este es un ejemplo de cómo se mostrará el contenido de una noticia
+                        dentro del sistema. Aquí podrás colocar información relevante
+                        sobre eventos, comunicados o actividades de la universidad.
+                    </p>
+
+                    <div class="news-footer">
+                        <a href="#" class="read-more">
+                            Leer más →
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <section>
+            <h3>Universidad Tecnológica de la Huasteca Hidalguense</h3>
+            <p>Dirección: Carretera Huejutla - Chalahuiyapa Km. 3.5, Hidalgo</p>
+            <p>Teléfono: 789 896 2083</p>
+            <p>Correo: contacto@uthh.edu.mx</p>
+        </section>
+
+        <section>
+            <p>&copy; <span id="year"></span> UTHH. Todos los derechos reservados.</p>
+        </section>
+    </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

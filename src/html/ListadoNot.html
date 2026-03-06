@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Publicaciones - UTHH</title>
+    <link rel="stylesheet" href="PriNoticias.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="top-bar">
+        <nav aria-label="Enlaces superiores">
+
+            <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+                <img src="img/805-original.webp" alt="logo" width="40">
+                <div style="color: #fff; font-weight: bold;">UTHH</div>
+            </div>
+
+            <a href="Administrador.html">Administrador</a>
+            <a href="registro.html">Registro</a>
+            <a href="listado.html">Empleados existentes</a>
+            <a href="incidencias.html">Registro incidencias</a>
+            <a href="Reporteindicidual.html">Reporte individual</a>
+
+        </nav>
+    </div>
+
+    <nav class="navbar" aria-label="Navegación principal">
+        <ul>
+            <a href="adminNot.html">Noticias</a>
+            <a href="ListadoNot.html">Listado Noticias</a>
+            <a href="listadoA.html">Modificar Filosofía</a>
+            <a href="contenidoAdmin.html">Directorio y Servicios</a>
+            <a href="login.html">Cerrar sesión</a>
+        </ul>
+    </nav>
+
+</header>
+
+<h1>Noticias</h1>
+
+<main class="admin-main">
+
+    <section class="admin-list">
+
+        <h2>Publicaciones existentes</h2>
+
+        <div class="noticia-card">
+
+            <div class="noticia-preview">
+
+                <img src="img/noticia1.jpg" alt="Imagen noticia" class="noticia-imagen">
+
+                <div class="noticia-info">
+                    <h3>Título de la publicación</h3>
+
+                    <p class="noticia-fecha">
+                        06/03/2026
+                    </p>
+
+                    <p class="noticia-resumen">
+                        Este es un ejemplo del resumen de una noticia dentro del panel de administrador.
+                        Aquí aparecerá una pequeña parte del contenido de la publicación.
+                    </p>
+                </div>
+
+            </div>
+
+            <details class="noticia-editar">
+
+                <summary>Editar publicación</summary>
+
+                <form class="form-editar">
+
+                    <label>Título</label>
+                    <input type="text" value="Título de la publicación">
+
+                    <label>Contenido</label>
+                    <textarea rows="6">
+Aquí irá el contenido completo de la publicación que podrá ser editado por el administrador.
+                    </textarea>
+
+                    <label>Fecha</label>
+                    <input type="date">
+
+                    <label>Cambiar imagen</label>
+                    <input type="file" accept="image/*">
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-editar">
+                            Actualizar
+                        </button>
+                    </div>
+
+                </form>
+
+                <form onsubmit="return confirm('¿Estás seguro de eliminar esta publicación?');">
+                    <button type="submit" class="btn-eliminar">
+                        Eliminar publicación
+                    </button>
+                </form>
+
+            </details>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <section>
+            <h3>Universidad Tecnológica de la Huasteca Hidalguense</h3>
+            <p>Dirección: Carretera Huejutla - Chalahuiyapa Km. 3.5, Hidalgo</p>
+            <p>Teléfono: 789 896 2083</p>
+            <p>Correo: contacto@uthh.edu.mx</p>
+        </section>
+
+        <section>
+            <p>&copy; <span id="year"></span> UTHH. Todos los derechos reservados.</p>
+        </section>
+
+    </div>
+
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
