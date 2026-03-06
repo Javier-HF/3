@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Registro de Asistencia del Personal</title>
+  <link rel="stylesheet" href="PriRegistro.css?v=<?php echo time(); ?>">
+</head>
+<body>
+  <header class="header">
+    
+    <div class="top-bar">
+        <nav aria-label="Enlaces superiores">
+           <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+            <img src="img/805-original.webp" alt="logo" width="40 ">
+            <div style="color: #fff; font-weight: bold;">UTHH</div>
+           </div>
+            <a href="Administrador.php">Administrador</a>
+            <a href="registro.php">Registro</a>
+            <a href="listado.php">Empleados existentes</a>
+            <a href="incidencias.php">Registro incidencias</a>
+            <a href="Reporteindicidual.php">Reporte individual</a>
+        </nav>
+    </div>
+
+    <nav class="navbar" aria-label="Navegación principal">
+        <ul>
+             <a href="adminNot.php"> Noticias</a>
+            <a href="ListadoNot.php">Listado Noticias</a>
+            <a href="listadoA.php">Modificar Filosofía</a>
+            <a href="contenidoAdmin.php">Directorio y Servicios</a>
+            <a href="login.php">Cerrar sesión</a>
+        </ul>
+    </nav>
+</header>
+
+<h1>Registro</h1>
+  <main>
+    <section aria-labelledby="titulo-registro">
+      <h1 id="titulo-registro"></h1>
+      <p>No te pierdas mis próximos posts…</p>
+
+      <form action="guardar.php" method="POST">
+        <fieldset>
+          <legend>Datos personales</legend>
+
+          <div>
+            <label for="Num_Trabajador">Num Trabajador:</label>
+            <input type="text" id="Num_Trabajador" name="Num_Trabajador" required />
+          </div>
+
+          <div>
+            <label for="Curp">CURP:</label>
+            <input type="text" id="Curp" name="Curp" required />
+          </div>
+
+          <div>
+            <label for="nombre">Nombre(s):</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+
+          <div>
+            <label for="apP">Apellido Paterno:</label>
+            <input type="text" id="apP" name="apP" required />
+          </div>
+
+          <div>
+            <label for="apM">Apellido Materno:</label>
+            <input type="text" id="apM" name="apM" required />
+          </div>
+        </fieldset>
+
+        
+        <fieldset>
+          <legend>Puesto y departamento</legend>
+
+          <div>
+            <label for="Puesto">Puesto:</label>
+            <select id="Puesto" name="Puesto" required>
+              <option value="DIRECTOR DE CARRERA">DIRECTOR DE CARRERA</option>
+              <option value="RECTOR">RECTOR</option>
+              <option value="SECRETARIA">SECRETARIA</option>
+              <option value="DOCENTE">DOCENTE</option>
+              <option value="JEFE DE MANTENIMIENTO">JEFE DE MANTENIMIENTO</option>
+              <option value="MANTENIMIENTO">MANTENIMIENTO</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="Departamento">Departamento:</label>
+            <select id="Departamento" name="Departamento" required>
+              <option value="TIC">TIC</option>
+              <option value="PROCESOS ALIMENTARIOS">PROCESOS ALIMENTARIOS</option>
+              <option value="MECANICA">MECÁNICA</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="Turno">Turno:</label>
+            <select id="Turno" name="Turno" required>
+              <option value="Matutino">Matutino</option>
+              <option value="Vespertino">Vespertino</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Asistencia semanal</legend>
+
+          <div>
+            <label for="Lunes">Lunes AM:</label>
+            <input type="text" id="Lunes" name="Lunes" required />
+            <label for="LunesPM">Lunes PM:</label>
+            <input type="text" id="LunesPM" name="LunesPM" required />
+          </div>
+
+          <div>
+            <label for="Martes">Martes AM:</label>
+            <input type="text" id="Martes" name="Martes" required />
+            <label for="MartesPM">Martes PM:</label>
+            <input type="text" id="MartesPM" name="MartesPM" required />
+          </div>
+
+          <div>
+            <label for="Miercoles">Miércoles AM:</label>
+            <input type="text" id="Miercoles" name="Miercoles" required />
+            <label for="MiercolesPM">Miércoles PM:</label>
+            <input type="text" id="MiercolesPM" name="MiercolesPM" required />
+          </div>
+
+          <div>
+            <label for="Jueves">Jueves AM:</label>
+            <input type="text" id="Jueves" name="Jueves" required />
+            <label for="JuevesPM">Jueves PM:</label>
+            <input type="text" id="JuevesPM" name="JuevesPM" required />
+          </div>
+
+          <div>
+            <label for="Viernes">Viernes AM:</label>
+            <input type="text" id="Viernes" name="Viernes" required />
+            <label for="ViernesPM">Viernes PM:</label>
+            <input type="text" id="ViernesPM" name="ViernesPM" required />
+          </div>
+        </fieldset>
+
+        <div class="form-buttons">
+          <button type="reset">Limpiar</button>
+          <button type="submit">Guardar</button>
+          <button type="button" onclick="window.location.href='Administrador.html'">Cancelar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <section>
+        <h2>Universidad Tecnológica de la Huasteca Hidalguense</h2>
+        <p>Dirección: Carretera Huejutla - Chalahuiyapa Km. 3.5, Hidalgo</p>
+        <p>Teléfono: 789 896 2083</p>
+        <p>Correo: contacto@uthh.edu.mx</p>
+      </section>
+      <section>
+        <p>&copy; <span id="year"></span> UTHH. Todos los derechos reservados.</p>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>

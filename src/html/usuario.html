@@ -1,0 +1,218 @@
+<?php
+session_start();
+require_once "conexion.php";
+
+//seguridad
+if (!isset($_SESSION['num_trabajador']) || !isset($_SESSION['empleado'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$empleado    = $_SESSION['empleado'];
+$horario     = $_SESSION['horario'];
+$asistencia  = $_SESSION['asistencia'];
+$incidencias = $_SESSION['incidencias'];
+$estado      = $_SESSION['estado'];
+
+
+//validar
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nueva_pws'])) {
+
+    $num_trabajador = $_SESSION['num_trabajador'];
+    $nueva_password = trim($_POST['nueva_pws']);
+    $confirmar      = trim($_POST['confirmar_pws']);
+
+    $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{};:,.<>?]).{8,}$/";
+
+    if ($nueva_password !== $confirmar) {
+
+        echo "<script>alert('Las contraseñas no coinciden');</script>";
+
+    } elseif (!preg_match($regex, $nueva_password)) {
+
+        echo "<script>
+        alert('La contraseña debe tener:\\n\\n- Mínimo 8 caracteres\\n- Una mayúscula\\n- Una minúscula\\n- Un número\\n- Un carácter especial');
+        </script>";
+
+    } elseif (password_verify($nueva_password, $empleado['pws'])) {
+
+        echo "<script>alert('No puedes usar la misma contraseña anterior');</script>";
+
+    } else {
+
+        $hash = password_hash($nueva_password, PASSWORD_BCRYPT, ['cost' => 12]);
+
+        $stmt = $conn->prepare("UPDATE empleado SET pws = ? WHERE `NUM-TRABAJADOR` = ?");
+        $stmt->bind_param("ss", $hash, $num_trabajador);
+
+        if ($stmt->execute()) {
+
+            $_SESSION['empleado']['pws'] = $hash;
+            echo "<script>alert('Contraseña actualizada correctamente');</script>";
+
+        } else {
+
+            echo "<script>alert('Error al actualizar la contraseña');</script>";
+        }
+
+        $stmt->close();
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Panel del Usuario</title>
+<link rel="stylesheet" href="StyleUsuario.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="top-bar" style="display:flex;align-items:center;gap:10px;">
+        <img src="img/805-original.webp" width="40">
+        <div style="color:#fff;font-weight:bold;">UTHH</div>
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="logout.php">Cerrar sesión</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<h2>Bienvenido, <?php echo htmlspecialchars($empleado['NOMBRE']); ?></h2>
+
+<section class="card">
+<h3>Datos del Empleado</h3>
+
+<p><strong>Nombre:</strong> <?php echo htmlspecialchars($empleado['NOMBRE']); ?></p>
+<p><strong>Apellido Paterno:</strong> <?php echo htmlspecialchars($empleado['A-PATERNO']); ?></p>
+<p><strong>Apellido Materno:</strong> <?php echo htmlspecialchars($empleado['A-MATERNO']); ?></p>
+<p><strong>Puesto:</strong> <?php echo htmlspecialchars($empleado['PUESTO']); ?></p>
+<p><strong>Departamento:</strong> <?php echo htmlspecialchars($empleado['DEPARTAMENTO']); ?></p>
+<p><strong>CURP:</strong> <?php echo htmlspecialchars($empleado['CURP']); ?></p>
+
+<button onclick="document.getElementById('formPass').style.display='block'">
+Modificar contraseña
+</button>
+
+<div id="formPass" style="display:none;margin-top:15px;">
+<form method="POST">
+
+<label>Nueva contraseña:</label><br>
+
+<div style="position:relative;width:250px;">
+<input type="password"
+       name="nueva_pws"
+       id="password"
+       required
+       minlength="8"
+       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=\[\]{};:,.<>?]).{8,}$"
+       title="Mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial"
+       style="width:100%;padding-right:40px;">
+
+<span onclick="togglePassword()"
+      style="position:absolute;right:10px;top:8px;cursor:pointer;">👁</span>
+</div>
+
+<br><br>
+
+<label>Confirmar contraseña:</label><br>
+<input type="password"
+       name="confirmar_pws"
+       required>
+
+<br><br>
+<button type="submit">Guardar contraseña</button>
+
+</form>
+</div>
+
+</section>
+
+
+<!-- HORARIO -->
+<section class="card">
+<h3>Horario Asignado</h3>
+<table>
+<tr><th>Día</th><th>Entrada</th><th>Salida</th></tr>
+<tr><td>Lunes</td><td><?= htmlspecialchars($horario['LUNES-am']) ?></td><td><?= htmlspecialchars($horario['LUNES-pm']) ?></td></tr>
+<tr><td>Martes</td><td><?= htmlspecialchars($horario['MARTES-am']) ?></td><td><?= htmlspecialchars($horario['MARTES-pm']) ?></td></tr>
+<tr><td>Miércoles</td><td><?= htmlspecialchars($horario['MIÉRCOLES-am']) ?></td><td><?= htmlspecialchars($horario['MIÉRCOLES-pm']) ?></td></tr>
+<tr><td>Jueves</td><td><?= htmlspecialchars($horario['JUEVES-am']) ?></td><td><?= htmlspecialchars($horario['JUEVES-pm']) ?></td></tr>
+<tr><td>Viernes</td><td><?= htmlspecialchars($horario['VIERNES-am']) ?></td><td><?= htmlspecialchars($horario['VIERNES-pm']) ?></td></tr>
+</table>
+</section>
+
+
+<!-- ASISTENCIA -->
+<section class="card">
+<h3>Historial de Asistencia</h3>
+<table>
+<tr><th>Fecha</th><th>Entrada</th><th>Salida</th><th>ID Incidencia</th></tr>
+<?php foreach ($asistencia as $row): ?>
+<tr>
+<td><?= htmlspecialchars($row['FECHA']) ?></td>
+<td><?= htmlspecialchars($row['ENTRADA']) ?></td>
+<td><?= htmlspecialchars($row['SALIDA']) ?></td>
+<td><?= htmlspecialchars($row['ID-INCIDENCIA']) ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+</section>
+
+
+<!-- INCIDENCIAS -->
+<section class="card">
+<h3>Incidencias</h3>
+<table>
+<tr><th>ID</th><th>CURP</th><th>Fecha</th><th>Descripción</th></tr>
+<?php foreach ($incidencias as $inc): ?>
+<tr>
+<td><?= htmlspecialchars($inc['ID-INCIDENCIA']) ?></td>
+<td><?= htmlspecialchars($inc['CURP']) ?></td>
+<td><?= htmlspecialchars($inc['FECHA']) ?></td>
+<td><?= htmlspecialchars($inc['DESCRIPCION']) ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+</section>
+
+
+<!-- ESTADO -->
+<section class="card">
+<h3>Estado del Trabajador</h3>
+<table>
+<tr><th>ID</th><th>Número</th><th>Fecha</th><th>Estatus</th></tr>
+<?php foreach ($estado as $st): ?>
+<tr>
+<td><?= htmlspecialchars($st['ID-ESTADO']) ?></td>
+<td><?= htmlspecialchars($st['NUM-TRABAJADOR']) ?></td>
+<td><?= htmlspecialchars($st['FECHA']) ?></td>
+<td><?= htmlspecialchars($st['ESTATUS']) ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+</section>
+
+</main>
+
+<footer class="footer">
+<p>&copy; <span id="year"></span> UTHH</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function togglePassword() {
+    const pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+</script>
+
+</body>
+</html>
