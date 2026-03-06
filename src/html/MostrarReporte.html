@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PriMostrarReporte.css">  
+    <title>Listado de Empleados</title>
+</head>
+<body>
+  <header class="header">
+    
+    <div class="top-bar">
+        <nav aria-label="Enlaces superiores">
+           <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+            <img src="img/805-original.webp" alt="logo" width="40 ">
+            <div style="color: #fff; font-weight: bold;">UTHH</div>
+           </div>
+            <a href="Administrador.php">Administrador</a>
+            <a href="registro.php">Registro</a>
+            <a href="listado.php">Empleados existentes</a>
+            <a href="incidencias.php">Registro incidencias</a>
+            <a href="Reporteindicidual.php">Reporte individual</a>
+        </nav>
+    </div>
+
+    <nav class="navbar" aria-label="Navegación principal">
+        <ul>
+             <a href="adminNot.php"> Noticias</a>
+            <a href="ListadoNot.php">Listado Noticias</a>
+            <a href="listadoA.php">Modificar Filosofía</a>
+            <a href="contenidoAdmin.php">Directorio y Servicios</a>
+            <a href="login.php">Cerrar sesión</a>
+        </ul>
+    </nav>
+</header>
+
+
+
+<main>
+
+    <!-- ==================== ASISTENCIA ==================== -->
+    <section aria-labelledby="titulo-asistencia">
+        <h2 id="titulo-asistencia">Asistencia</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Trabajador</th>
+                    <th>ID Horario</th>
+                    <th>Fecha</th>
+                    <th>Entrada</th>
+                    <th>Salida</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- Aquí irían los datos de asistencia. -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ==================== INCIDENCIAS ==================== -->
+    <section aria-labelledby="titulo-incidencias">
+        <h2 id="titulo-incidencias">Incidencias</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Trabajador</th>
+                    <th>CURP</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- Aquí irían los datos de incidencias. -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ==================== BOTÓN PDF ==================== -->
+    <section aria-label="Descargar reporte en PDF">
+        <form method="POST" action="generarPDF.php" target="_blank">
+            <input type="hidden" name="accion" value="">
+            <input type="hidden" name="Num_Trabajador" value="">
+            <input type="hidden" name="fechainicio" value="">
+            <input type="hidden" name="fechaFin" value="">
+            <button type="submit">Guardar PDF</button>
+        </form>
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <section>
+      <h3>Universidad Tecnológica de la Huasteca Hidalguense</h3>
+      <p>Dirección: Carretera Huejutla – Chalahuiyapa Km. 3.5, Hidalgo</p>
+      <p>Teléfono: 789 896 2083</p>
+      <p>Correo: contacto@uthh.edu.mx</p>
+    </section>
+    <section>
+      <p>&copy; <span id="year"></span> UTHH. Todos los derechos reservados.</p>
+    </section>
+  </div>
+</footer>

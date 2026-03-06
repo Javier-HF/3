@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PriEditarEmple.css">
+    <title>Editar Trabajador</title>
+</head>
+<body>
+    <header class="header">
+    
+    <div class="top-bar">
+        <nav aria-label="Enlaces superiores">
+           <div style="display: flex; align-items: center; margin-bottom: 10px; gap: 10px;">
+            <img src="img/805-original.webp" alt="logo" width="40 ">
+            <div style="color: #fff; font-weight: bold;">UTHH</div>
+           </div>
+            <a href="Administrador.php">Administrador</a>
+            <a href="registro.php">Registro</a>
+            <a href="listado.php">Empleados existentes</a>
+            <a href="incidencias.php">Registro incidencias</a>
+            <a href="Reporteindicidual.php">Reporte individual</a>
+        </nav>
+    </div>
+
+    <nav class="navbar" aria-label="Navegación principal">
+        <ul>
+             <a href="adminNot.php"> Noticias</a>
+            <a href="ListadoNot.php">Listado Noticias</a>
+            <a href="listadoA.php">Modificar Filosofía</a>
+            <a href="contenidoAdmin.php">Directorio y Servicios</a>
+            <a href="login.php">Cerrar sesión</a>
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        <h1>Editar Trabajador</h1>
+
+        <form action="actualizar.php" method="POST">
+
+            <!-- MANDAR ID OCULTO -->
+            <input type="hidden" name="ID_EMPLEADO" value="">
+
+            <label>Num Trabajador:</label>
+            <input type="text" name="Num_Trabajador" value="" readonly>
+
+            <label>CURP:</label>
+            <input type="text" name="Curp" value="" required>
+
+            <label>Nombre(s):</label>
+            <input type="text" name="nombre" value="" required>
+
+            <label>Apellido Paterno:</label>
+            <input type="text" name="apP" value="" required>
+
+            <label>Apellido Materno:</label>
+            <input type="text" name="apM" value="" required>
+
+            <label>Puesto:</label>
+            <select name="Puesto">
+                <option>DIRECTOR DE CARRERA</option>
+                <option>RECTOR</option>
+                <option>SECRETARIA</option>
+                <option>DOCENTE</option>
+                <option>JEFE DE MANTENIMIENTO</option>
+                <option>MANTENIMIENTO</option>
+            </select>
+
+            <label>Departamento:</label>
+            <select name="Departamento">
+                <option>TIC</option>
+                <option>PROCESOS ALIMENTARIOS</option>
+                <option>MECANICA</option>
+            </select>
+
+            <label>Contraseña</label>
+            <input type="text" name="pws" value="" required>
+
+            <label>Turno:</label>
+            <select name="Turno">
+                <option>Matutino</option>
+                <option>Despertino</option>
+            </select>
+
+            <h4>Horario</h4>
+
+            <label>Lunes:</label>
+            <input type="text" name="Lunes"    value="" placeholder="Lunes AM">
+            <input type="text" name="LunesPM"  value="" placeholder="Lunes PM">
+
+            <label>Martes:</label>
+            <input type="text" name="Martes"   value="" placeholder="Martes AM">
+            <input type="text" name="MartesPM" value="" placeholder="Martes PM">
+
+            <label>Miércoles:</label>
+            <input type="text" name="Miercoles"   value="">
+            <input type="text" name="MiercolesPM" value="">
+
+            <label>Jueves:</label>
+            <input type="text" name="Jueves"    value="">
+            <input type="text" name="JuevesPM"  value="">
+
+            <label>Viernes:</label>
+            <input type="text" name="Viernes"    value="">
+            <input type="text" name="ViernesPM"  value="">
+
+            <br><br>
+            <button type="reset">Limpiar</button>
+            <button type="submit">Actualizar</button>
+            <button type="button" onclick="window.location='listado.php'">Cancelar</button>
+
+        </form>
+    </main>
+    <footer class="footer">
+    <div class="footer-inner">
+        <section>
+            <h3>Universidad Tecnológica de la Huasteca Hidalguense</h3>
+            <p>Dirección: Carretera Huejutla - Chalahuiyapa Km. 3.5, Hidalgo</p>
+            <p>Teléfono: 789 896 2083</p>
+            <p>Correo: contacto@uthh.edu.mx</p>
+        </section>
+
+        <section>
+            <p>&copy; <span id="year"></span> UTHH. Todos los derechos reservados.</p>
+        </section>
+    </div>
+</footer>
