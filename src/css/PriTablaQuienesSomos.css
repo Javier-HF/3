@@ -1,0 +1,216 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table th {
+    background-color: #5b1220;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+
+table tr:hover {
+    background-color: #e8f0ff;
+    transition: background-color 0.2s ease-in-out;
+}
+
+
+tbody a {
+    margin-right: 8px;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.2s ease;
+}
+
+
+tbody a[href*="editar"] {
+    background-color: #003f7f;
+}
+tbody a[href*="editar"]:hover {
+    background-color: #003f7f;
+}
+
+
+tbody a[href*="borrar"],
+tbody a[href*="eliminar"] {
+    background-color: #d62828;
+}
+tbody a[href*="borrar"]:hover,
+tbody a[href*="eliminar"]:hover {
+    background-color: #a31515;
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    tbody td {
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 5px;
+    }
+
+    tbody td::before {
+        content: attr(data-label);:root {
+    --maroon: #5b1220;
+    --gold: #bd9659;
+    --light: #efe1b3;
+    --text-dark: #222;
+    --text-muted: #777;
+    --radius: 6px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    border: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #fff;
+}
+
+table th {
+    background-color: var(--maroon);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 15px;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    color: var(--text-dark);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--light);
+}
+
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table tr:hover {
+    background-color: #e8e0d8;
+    transition: background-color 0.2s ease-in-out;
+}
+
+tbody a {
+    margin-right: 8px;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.2s ease;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+tbody a[href*="editar"] {
+    background-color: #003f7f;
+}
+
+tbody a[href*="editar"]:hover {
+    background-color: #002d5f;
+}
+
+tbody a[href*="borrar"],
+tbody a[href*="eliminar"] {
+    background-color: #d62828;
+}
+
+tbody a[href*="borrar"]:hover,
+tbody a[href*="eliminar"]:hover {
+    background-color: #a31515;
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: var(--radius);
+        padding: 10px;
+        box-shadow: var(--shadow);
+    }
+
+    tbody td {
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 5px;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--maroon);
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+        font-weight: bold;
+        color: #A6192E;
+    }
+}
